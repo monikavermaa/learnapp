@@ -1,0 +1,6 @@
+<%= form_tag import_menus_path, multipart: true, class: "upload-form" do %>
+
+  <%= file_field_tag :file %>
+  <%= submit_tag "Upload", class: "btn btn-primary" %>
+
+<% end %>

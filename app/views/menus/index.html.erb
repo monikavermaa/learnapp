@@ -1,0 +1,101 @@
+<div class="upload-form-container">
+  <h3>Upload Menu</h3>
+  <%= render 'upload_form' %>
+</div>  
+
+<div class="container">
+  <h2>Menu Items</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Dish Name</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Allergens</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @menu_items.each do |item| %>
+        <tr>
+          <td><%= item.dish_name %></td>
+          <td><%= item.dish_description %></td>
+          <td><%= item.dish_type %></td>
+          <td><%= item.allergens %></td>
+          <td><%= item.category %></td>
+          <td><%= item.price %></td>
+          <td>
+            <%= link_to "Delete", menu_path(item.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<style type="text/css">
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  padding: 8px;
+  text-align: left;
+}
+
+.table td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+.upload-form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.upload-form input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.upload-form button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.upload-form button:hover {
+  background-color: #0056b3;
+}
+
+</style>
